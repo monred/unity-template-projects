@@ -11,6 +11,10 @@ public class PlayerInformation : MonoBehaviour
     private int invTime = 0;
     
     void Awake() {health = maxHealth; invTime = 0;}
+
+    public void Update(){
+        if(invTime > 0){invTime--;}
+    }
     
     public void takeDamage(int amount){
         if(invTime == 0){

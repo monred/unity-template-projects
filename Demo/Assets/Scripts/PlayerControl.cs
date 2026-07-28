@@ -18,7 +18,6 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         int direcion = 0;
-        int jum = 0;
         if(Input.GetKey(leftKey)) {direcion--;}
         if(Input.GetKey(rightKey)) {direcion++;}
         if(Input.GetKeyDown(jumpKey) && onGrounded) {

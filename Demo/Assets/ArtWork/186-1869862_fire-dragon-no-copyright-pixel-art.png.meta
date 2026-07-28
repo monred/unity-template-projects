@@ -260,7 +260,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      186-1869862_fire-dragon-no-copyright-pixel-art_0: -1129368357941291830
+      186-1869862_fire-dragon-no-copyright-pixel-art_1: 5014609862585267788
+      186-1869862_fire-dragon-no-copyright-pixel-art_2: 5443261132033653769
+      186-1869862_fire-dragon-no-copyright-pixel-art_3: 1396732085588503457
+      186-1869862_fire-dragon-no-copyright-pixel-art_4: 7774570496019644456
+      186-1869862_fire-dragon-no-copyright-pixel-art_5: -1826585664832333617
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
