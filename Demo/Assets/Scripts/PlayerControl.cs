@@ -10,6 +10,7 @@ public class PlayerControl : MonoBehaviour
     public float jumpForce;
     public float horizSpeed;
     public int interAttack;
+    private int start;
     public bool death = false;
     public Transform damageAre;
     public KeyCode jumpKey = KeyCode.Space;
@@ -20,12 +21,21 @@ public class PlayerControl : MonoBehaviour
     private Animator mA;
     private SpriteRenderer sprRend;
     // Start is called before the first frame update
-    void Awake() {rb = GetComponent<Rigidbody2D>(); sprRend = GetComponent<SpriteRenderer>(); mA = GetComponent<Animator>();death = false;}
+    void Awake() {rb = GetComponent<Rigidbody2D>(); sprRend = GetComponent<SpriteRenderer>(); mA = GetComponent<Animator>();death = false; start = 0;}
 
     void Update()
     {
+        start++;
+        if(start <= 1000){
+            mA.SetInteger("AnimState", 1);
+            rb.velocity = new Vector2(horizSpeed, 0);
+        }
+        if(start > 1000  && start <= 1500){
+            rb.velocity = new Vector2(0, 0);
+            mA.SetInteger("AnimState", 0);
+        }
         int direcion = 0;
-        if(interAttack <= 0 && !death){
+        if(interAttack <= 0 && !death && start > 1500){
             if(onGrounded && Input.GetKeyDown(attackKey)){
                 interAttack = 80;
                 rb.velocity = new Vector2(0.0f, rb.velocity.y);
