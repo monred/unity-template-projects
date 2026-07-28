@@ -20,4 +20,17 @@ public class EnemyHealth : MonoBehaviour
     {
         
     }
+    public void takeDamage(int amount){
+        health -= amount;
+        
+            if(health <= 0){
+                death();
+            }
+            
+        return;
+    }
+
+    private void death(){
+        Debug.Log("Enemy dead");
+    }
 }

@@ -364,7 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageTime: 0
   maxDamageTime: 1
-  damageAmount: 0
+  damageAmount: 40
   hitEnemy: 1
   hitPlayer: 0
 --- !u!114 &464043714421018373
