@@ -12,13 +12,13 @@ public class PlayerControl : MonoBehaviour
     public KeyCode leftKey = KeyCode.A;
     public KeyCode squatKey = KeyCode.C;
     public KeyCode rightKey = KeyCode.D;
+    private SpriteRenderer sprRend;
     // Start is called before the first frame update
-    void Awake() {rb = GetComponent<Rigidbody2D>();}
+    void Awake() {rb = GetComponent<Rigidbody2D>(); sprRend = GetComponent<SpriteRenderer>();}
 
     void Update()
     {
         int direcion = 0;
-        int jum = 0;
         if(Input.GetKey(leftKey)) {direcion--;}
         if(Input.GetKey(rightKey)) {direcion++;}
         if(Input.GetKeyDown(jumpKey) && onGrounded) {
