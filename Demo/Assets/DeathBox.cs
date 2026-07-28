@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DeathBox : MonoBehaviour
 {
+    public Transform respawnPoint;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
