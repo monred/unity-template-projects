@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private bool roll;
     public bool onGrounded;
     public float jumpForce;
     public float horizSpeed;
@@ -55,7 +56,7 @@ public class PlayerControl : MonoBehaviour
     public void attack(){
         if(damageAre!= null){
             if(sprRend.flipX){
-                damageAre.position = new Vector3(transform.position.x + -0.9f, transform.position.y + 0.7f, transform.position.z + 0f);
+                damageAre.position = new Vector3(transform.position.x + -0.9f, transform.position.y + 0.7f, transform.position.z + 0.0f);
             }
             else{
                 damageAre.position = new Vector3(transform.position.x + 0.9f, transform.position.y + 0.7f, transform.position.z + 0.0f);
