@@ -13,11 +13,9 @@ public class DamageArea : MonoBehaviour
     void Awake() {damageTime = 0;}
 
     private void OnTriggerStay2D(Collider2D other){
-                Debug.Log("aaa");
         if(damageTime != maxDamageTime){
             if(other.tag == "Enemy" && hitEnemy)
             {
-                Debug.Log("aaa");
                 damageTime++;
                 other.GetComponent<EnemyHealth>().takeDamage(damageAmount);
             }

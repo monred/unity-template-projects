@@ -64,7 +64,7 @@ public class PlayerControl : MonoBehaviour
         }
         int attackWay = Random.Range(1,4);
         mA.SetTrigger("Attack" + attackWay);
-        damageAre.GetComponent<DamageArea>().damageAmount = 0;
+        damageAre.GetComponent<DamageArea>().damageTime = 0;
         return;
     }
 }
