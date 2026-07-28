@@ -261,8 +261,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7417951237475836737, guid: 42705e95b5445d6429c049ac13f561b0, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417951237475836737, guid: 42705e95b5445d6429c049ac13f561b0, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417951237475836737, guid: 42705e95b5445d6429c049ac13f561b0, type: 3}
       propertyPath: m_GravityScale
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7537115288622521945, guid: 42705e95b5445d6429c049ac13f561b0, type: 3}
       propertyPath: m_Name
@@ -274,7 +282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8961821188058847539, guid: 42705e95b5445d6429c049ac13f561b0, type: 3}
       propertyPath: horizSpeed
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

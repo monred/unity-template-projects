@@ -21,10 +21,12 @@ public class PlayerControl : MonoBehaviour
         int jum = 0;
         if(Input.GetKey(leftKey)) {direcion--;}
         if(Input.GetKey(rightKey)) {direcion++;}
-        if(Input.GetKey(jumpKey) && onGrounded) {
-            jum = 1;
+        if(Input.GetKeyDown(jumpKey) && onGrounded) {
+            rb.velocity = new Vector2(direcion * horizSpeed, jumpForce);
         }
-        rb.velocity = new Vector2(direcion * horizSpeed, jum * jumpForce);
+        else{
+            rb.velocity = new Vector2(direcion * horizSpeed, rb.velocity.y);
+        }
         
     }
 }
