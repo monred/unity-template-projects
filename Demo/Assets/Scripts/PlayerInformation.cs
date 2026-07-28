@@ -7,7 +7,7 @@ public class PlayerInformation : MonoBehaviour
     public int health;
     public int maxHealth;
     public int damage;
-    private int maxInvTime = 500;
+    private int maxInvTime = 1000;
     private int invTime = 0;
     private SpriteRenderer sprRend;
     
@@ -16,7 +16,7 @@ public class PlayerInformation : MonoBehaviour
     public void Update(){
         if(invTime > 0){
             invTime--;
-            if(invTime % 80 > 40){
+            if(invTime % 400 < 200){
                 sprRend.color = Color.black;
             }
             else{
