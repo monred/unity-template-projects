@@ -8,20 +8,20 @@ public class PlayerControl : MonoBehaviour
     public bool onGrounded;
     public float jumpForce;
     public float horizSpeed;
-    public KeyCode jumpKey;
-    public KeyCode leftKey;
-    public KeyCode squatKey;
-    public KeyCode rightKey;
+    public KeyCode jumpKey = KeyCode.Space;
+    public KeyCode leftKey = KeyCode.A;
+    public KeyCode squatKey = KeyCode.C;
+    public KeyCode rightKey = KeyCode.D;
     // Start is called before the first frame update
     void Awake() {rb = GetComponent<Rigidbody2D>();}
 
-    void FixedUpdate()
+    void Update()
     {
         int direcion = 0;
         int jum = 0;
-        if(Input.GetKeyDown(leftKey)) {direcion--;}
-        if(Input.GetKeyDown(rightKey)) {direcion++;}
-        if(Input.GetKeyDown(jumpKey) && onGrounded) {
+        if(Input.GetKey(leftKey)) {direcion--;}
+        if(Input.GetKey(rightKey)) {direcion++;}
+        if(Input.GetKey(jumpKey) && onGrounded) {
             jum = 1;
         }
         rb.velocity = new Vector2(direcion * horizSpeed, jum * jumpForce);
