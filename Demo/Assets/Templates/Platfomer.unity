@@ -3230,8 +3230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65981f6e364f8d24294f0be79ce26785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  jumpHeight: 20
+  speed: 7
+  jumpHeight: 10
 --- !u!1 &877581957
 GameObject:
   m_ObjectHideFlags: 0
