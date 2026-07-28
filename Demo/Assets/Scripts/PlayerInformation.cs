@@ -7,17 +7,18 @@ public class PlayerInformation : MonoBehaviour
     public int health;
     public int maxHealth;
     public int damage;
-    private int maxInvTime = 1000;
+    private int maxInvTime = 600;
     private int invTime = 0;
+    private PlayerControl pcC;
     private Animator mA;
     private SpriteRenderer sprRend;
     
-    void Awake() {health = maxHealth; invTime = 0; sprRend = GetComponent<SpriteRenderer>(); mA = GetComponent<Animator>();}
+    void Awake() {health = maxHealth; invTime = 0; sprRend = GetComponent<SpriteRenderer>(); mA = GetComponent<Animator>(); pcC = GetComponent<PlayerControl>();}
 
     public void Update(){
         if(invTime > 0){
             invTime--;
-            if(invTime % 400 > 250){
+            if(invTime % 200 > 100){
                 sprRend.color = Color.black;
             }
             else{
@@ -39,7 +40,8 @@ public class PlayerInformation : MonoBehaviour
         return;
     }
     private void death(){
-        mA.SetTrigger("noBlood");
+        mA.SetTrigger("Death");
         Debug.Log("We dead");
+        pcC.death = true;
     }
 }
