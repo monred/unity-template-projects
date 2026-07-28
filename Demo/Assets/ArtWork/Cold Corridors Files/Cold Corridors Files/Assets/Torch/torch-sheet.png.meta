@@ -212,7 +212,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      torch-sheet_0: -3358491355074315594
+      torch-sheet_1: 2362910992589709495
+      torch-sheet_2: -7553298728540849737
+      torch-sheet_3: 3143825863133878439
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
