@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e80e8484f4317242bab73404c58181d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 100
   maxHealth: 100
   damage: 0
 --- !u!114 &8961821188058847539
@@ -163,8 +163,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onGrounded: 0
-  jumpForce: 10
-  horizSpeed: 1
+  jumpForce: 40
+  horizSpeed: 5
   jumpKey: 32
   leftKey: 97
   squatKey: 99
@@ -183,7 +183,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -195,7 +195,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1001 &1453061591049684027
 PrefabInstance:
   m_ObjectHideFlags: 0
