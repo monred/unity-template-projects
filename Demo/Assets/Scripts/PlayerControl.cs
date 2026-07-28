@@ -26,16 +26,16 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         start++;
-        if(start <= 1000){
+        if(start <= 800){
             mA.SetInteger("AnimState", 1);
             rb.velocity = new Vector2(horizSpeed, 0);
         }
-        if(start > 1000  && start <= 1500){
+        if(start > 800  && start <= 1200){
             rb.velocity = new Vector2(0, 0);
             mA.SetInteger("AnimState", 0);
         }
         int direcion = 0;
-        if(interAttack <= 0 && !death && start > 1500){
+        if(interAttack <= 0 && !death && start > 1200){
             if(onGrounded && Input.GetKeyDown(attackKey)){
                 interAttack = 80;
                 rb.velocity = new Vector2(0.0f, rb.velocity.y);
