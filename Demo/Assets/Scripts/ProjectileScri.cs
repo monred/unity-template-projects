@@ -14,7 +14,7 @@ public class ProjectileScri : MonoBehaviour
     void Update()
     {
         if(daAr.damageTime != daAr.maxDamageTime){
-            rb.velocity = speed;
+            rb.velocity = new Vector2(-Mathf.Abs(speed.x), speed.y);
         }
         else{
             rb.position = restPlace;
