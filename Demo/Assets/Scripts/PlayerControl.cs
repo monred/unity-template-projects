@@ -10,7 +10,7 @@ public class PlayerControl : MonoBehaviour
     public float jumpForce;
     public float horizSpeed;
     public int interAttack;
-    private int start;
+    public int start = 0;
     public bool death = false;
     public Transform damageAre;
     public KeyCode jumpKey = KeyCode.Space;
@@ -21,7 +21,7 @@ public class PlayerControl : MonoBehaviour
     private Animator mA;
     private SpriteRenderer sprRend;
     // Start is called before the first frame update
-    void Awake() {rb = GetComponent<Rigidbody2D>(); sprRend = GetComponent<SpriteRenderer>(); mA = GetComponent<Animator>();death = false; start = 0;}
+    void Awake() {rb = GetComponent<Rigidbody2D>(); sprRend = GetComponent<SpriteRenderer>(); mA = GetComponent<Animator>();death = false;}
 
     void Update()
     {
