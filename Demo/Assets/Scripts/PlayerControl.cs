@@ -10,7 +10,7 @@ public class PlayerControl : MonoBehaviour
     public float jumpForce;
     public float horizSpeed;
     public int interAttack;
-    private int start;
+    public int start;
     public bool death = false;
     public Transform damageAre;
     public KeyCode jumpKey = KeyCode.Space;
