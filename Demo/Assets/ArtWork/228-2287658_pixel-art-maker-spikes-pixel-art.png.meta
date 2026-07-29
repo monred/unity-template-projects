@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      228-2287658_pixel-art-maker-spikes-pixel-art_0: -7956606266540973434
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
