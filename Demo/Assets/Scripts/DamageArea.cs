@@ -27,4 +27,7 @@ public class DamageArea : MonoBehaviour
         }
         
     }
+    public void resetDelay(){
+        damageTime = 0;
+    }
 }

@@ -73,8 +73,12 @@ public class PlayerControl : MonoBehaviour
             }
         }
         int attackWay = Random.Range(1,4);
+        resetProjec(damageAre);
         mA.SetTrigger("Attack" + attackWay);
-        damageAre.GetComponent<DamageArea>().damageTime = 0;
         return;
+    }
+    public void resetProjec(Transform projec){
+        projec.GetComponent<DamageArea>().resetDelay();
+        projec.GetComponent<ProjectileScri>().resetDelay();
     }
 }
