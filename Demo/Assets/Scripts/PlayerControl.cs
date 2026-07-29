@@ -20,6 +20,10 @@ public class PlayerControl : MonoBehaviour
     public KeyCode attackKey = KeyCode.Mouse0;
     private Animator mA;
     private SpriteRenderer sprRend;
+
+    [SerializeField] AudioSource jumpSound;
+    [SerializeField] AudioSource attackSound;
+
     // Start is called before the first frame update
     void Awake() {rb = GetComponent<Rigidbody2D>(); sprRend = GetComponent<SpriteRenderer>(); mA = GetComponent<Animator>();death = false;}
 
@@ -38,6 +42,7 @@ public class PlayerControl : MonoBehaviour
         if(interAttack <= 0 && !death && start > 1200){
             if(onGrounded && Input.GetKeyDown(attackKey)){
                 interAttack = 80;
+                attackSound.Play();
                 rb.velocity = new Vector2(0.0f, rb.velocity.y);
                 attack();
                mA.SetInteger("AnimState",0);
@@ -48,6 +53,7 @@ public class PlayerControl : MonoBehaviour
                 if(Input.GetKey(rightKey)) {direcion++;  sprRend.flipX = false;}
                 if(Input.GetKeyDown(jumpKey) && onGrounded) {
                     mA.SetTrigger("Jump");
+                    jumpSound.Play();
                     rb.velocity = new Vector2(direcion * horizSpeed, jumpForce);
                 }
                 else{
