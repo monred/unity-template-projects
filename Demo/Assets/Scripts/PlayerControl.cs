@@ -53,6 +53,7 @@ public class PlayerControl : MonoBehaviour
                 if(Input.GetKey(rightKey)) {direcion++;  sprRend.flipX = false;}
                 if(Input.GetKeyDown(jumpKey) && onGrounded) {
                     mA.SetTrigger("Jump");
+                    onGrounded = false;
                     jumpSound.Play();
                     rb.velocity = new Vector2(direcion * horizSpeed, jumpForce);
                 }
