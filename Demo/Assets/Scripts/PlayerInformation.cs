@@ -19,7 +19,7 @@ public class PlayerInformation : MonoBehaviour
     public void Update(){
         if(invTime > 0){
             invTime--;
-            if(invTime % 200 > 100){
+            if(invTime % 100 > 50){
                 sprRend.color = Color.black;
             }
             else{
