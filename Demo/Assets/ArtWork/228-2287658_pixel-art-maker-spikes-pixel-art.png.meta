@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d5539e4aca06e4a4186f0253d1ca897b
+guid: a489c8848c4af1d40b4d25ce9e107d95
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3433986644116450433
-    second: 3U1k75_0
+      213: -7956606266540973434
+    second: 228-2287658_pixel-art-maker-spikes-pixel-art_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 3U1k75_0
+      name: 228-2287658_pixel-art-maker-spikes-pixel-art_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1680
-        height: 672
+        width: 331
+        height: 171
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 18c2ff5a8a8f7af20800000000000000
-      internalID: 3433986644116450433
+      spriteID: 682ad29a1c4749190800000000000000
+      internalID: -7956606266540973434
       vertices: []
       indices: 
       edges: []
@@ -140,8 +140,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      3U1k75_0: 3433986644116450433
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
