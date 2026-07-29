@@ -10,13 +10,16 @@ public class FireShooter : MonoBehaviour
     private int i = 0;
     private void Awake(){i = 0;}
     public void trigger(){
-        i++;
-        if(i == projectileList.Count){
-            i = 0;
+        if(projectileList.Count > 0){
+                
+            i++;
+            if(i == projectileList.Count){
+                i = 0;
+            }
+            resetProjec(projectileList[i]);
+            if(followSelfPosition){projectileList[i].position = transform.position;}
+            else{projectileList[i].position = spawnPosition;}    
         }
-        resetProjec(projectileList[i]);
-        if(followSelfPosition){projectileList[i].position = transform.position;}
-        else{projectileList[i].position = spawnPosition;}
         
     }
     
