@@ -17,6 +17,7 @@ public class DamageArea : MonoBehaviour
             if(other.tag == "Enemy" && hitEnemy)
             {
                 damageTime++;
+                other.GetComponent<EnemyHealth>().takeDamage(damageAmount);
             }
             else if(other.tag == "Player" && hitPlayer)
             {

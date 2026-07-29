@@ -5,11 +5,14 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private bool roll;
     public bool onGrounded;
     public float jumpForce;
     public float horizSpeed;
     public int interAttack;
+    private int start;
     public bool death = false;
+    public Transform damageAre;
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode leftKey = KeyCode.A;
     public KeyCode rightKey = KeyCode.D;
@@ -18,18 +21,29 @@ public class PlayerControl : MonoBehaviour
     private Animator mA;
     private SpriteRenderer sprRend;
     // Start is called before the first frame update
-    void Awake() {rb = GetComponent<Rigidbody2D>(); sprRend = GetComponent<SpriteRenderer>(); mA = GetComponent<Animator>();death = false;}
+    void Awake() {rb = GetComponent<Rigidbody2D>(); sprRend = GetComponent<SpriteRenderer>(); mA = GetComponent<Animator>();death = false; start = 0;}
 
     void Update()
     {
+        start++;
+        if(start <= 800){
+            mA.SetInteger("AnimState", 1);
+            rb.velocity = new Vector2(horizSpeed, 0);
+        }
+        if(start > 800  && start <= 1200){
+            rb.velocity = new Vector2(0, 0);
+            mA.SetInteger("AnimState", 0);
+        }
         int direcion = 0;
-        if(interAttack <= 0 && !death){
+        if(interAttack <= 0 && !death && start > 1200){
             if(onGrounded && Input.GetKeyDown(attackKey)){
-                interAttack = 300;
+                interAttack = 80;
                 rb.velocity = new Vector2(0.0f, rb.velocity.y);
                 attack();
+               mA.SetInteger("AnimState",0);
             }
             else{
+                damageAre.position = damageAre.GetComponent<ProjectileScri>().restPlace;
                 if(Input.GetKey(leftKey)) {direcion--; sprRend.flipX = true;}
                 if(Input.GetKey(rightKey)) {direcion++;  sprRend.flipX = false;}
                 if(Input.GetKeyDown(jumpKey) && onGrounded) {
@@ -50,8 +64,17 @@ public class PlayerControl : MonoBehaviour
         interAttack--;
     }
     public void attack(){
+        if(damageAre!= null){
+            if(sprRend.flipX){
+                damageAre.position = new Vector3(transform.position.x + -0.9f, transform.position.y + 0.7f, transform.position.z + 0.0f);
+            }
+            else{
+                damageAre.position = new Vector3(transform.position.x + 0.9f, transform.position.y + 0.7f, transform.position.z + 0.0f);
+            }
+        }
         int attackWay = Random.Range(1,4);
         mA.SetTrigger("Attack" + attackWay);
+        damageAre.GetComponent<DamageArea>().damageTime = 0;
         return;
     }
 }
