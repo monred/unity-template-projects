@@ -42,7 +42,8 @@ public class PlayerControl : MonoBehaviour
         if(interAttack <= 0 && !death && start > 1200){
             if(onGrounded && Input.GetKeyDown(attackKey)){
                 interAttack = 80;
-                attackSound.Play();
+                if(attackSound != null){
+                attackSound.Play();}
                 rb.velocity = new Vector2(0.0f, rb.velocity.y);
                 attack();
                mA.SetInteger("AnimState",0);
@@ -54,7 +55,8 @@ public class PlayerControl : MonoBehaviour
                 if(Input.GetKeyDown(jumpKey) && onGrounded) {
                     mA.SetTrigger("Jump");
                     onGrounded = false;
-                    jumpSound.Play();
+                if(jumpSound != null){
+                jumpSound.Play();}
                     rb.velocity = new Vector2(direcion * horizSpeed, jumpForce);
                 }
                 else{

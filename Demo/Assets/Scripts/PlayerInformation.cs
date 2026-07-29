@@ -35,7 +35,10 @@ public class PlayerInformation : MonoBehaviour
             mA.SetTrigger("Hurt");
             invTime = maxInvTime;
             health -= amount;
+            if(injuredSound != null)
+            {
             injuredSound.Play();
+            }
             if(health <= 0){
             deathBe = true;
                 death();
