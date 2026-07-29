@@ -128,6 +128,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 199830282}
     m_Modifications:
+    - target: {fileID: 2494771346010709566, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7956606266540973434, guid: a489c8848c4af1d40b4d25ce9e107d95, type: 3}
     - target: {fileID: 2698781101631381962, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
       propertyPath: speed.x
       value: 0
@@ -322,6 +326,18 @@ PrefabInstance:
       value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 5650423630096164302, guid: ed7afb02a2246614da8d0e93b155ef48, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5650423630096164302, guid: ed7afb02a2246614da8d0e93b155ef48, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5650423630096164302, guid: ed7afb02a2246614da8d0e93b155ef48, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5650423630096164302, guid: ed7afb02a2246614da8d0e93b155ef48, type: 3}
       propertyPath: m_SortingOrder
       value: 10
       objectReference: {fileID: 0}
@@ -499,6 +515,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 199830282}
     m_Modifications:
+    - target: {fileID: 2494771346010709566, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7956606266540973434, guid: a489c8848c4af1d40b4d25ce9e107d95, type: 3}
     - target: {fileID: 2698781101631381962, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
       propertyPath: speed.x
       value: 0
@@ -573,6 +593,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 199830282}
     m_Modifications:
+    - target: {fileID: 2494771346010709566, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7956606266540973434, guid: a489c8848c4af1d40b4d25ce9e107d95, type: 3}
     - target: {fileID: 2698781101631381962, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
       propertyPath: speed.x
       value: 0
@@ -731,6 +755,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 199830282}
     m_Modifications:
+    - target: {fileID: 2494771346010709566, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7956606266540973434, guid: a489c8848c4af1d40b4d25ce9e107d95, type: 3}
     - target: {fileID: 2698781101631381962, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
       propertyPath: speed.x
       value: 0
@@ -1175,6 +1203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillInterval: 1000
+  startDelay: 1200
   skillObjectList:
   - {fileID: 1031696545}
 --- !u!1 &1413862599
