@@ -168,6 +168,7 @@ MonoBehaviour:
   jumpForce: 7
   horizSpeed: 4
   interAttack: 0
+  start: 0
   death: 0
   damageAre: {fileID: 5508268270312973252}
   jumpKey: 32
@@ -380,6 +381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   daAr: {fileID: 7241998245124222634}
+  deathTrigger: -1
   speed: {x: 0, y: 0, z: 0}
   restPlace: {x: 1000, y: 800, z: 0}
 --- !u!61 &6325550011338849941
