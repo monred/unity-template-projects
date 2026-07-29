@@ -2,44 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Scenechangingscript : MonoBehaviour
 {
     public CanvasGroup fadeCanvasGroup;
     public float fadeDuration = 1.0f;
-    
+    public Image sr;
     
     public void FadeToScene(string sceneName)
     {
-        StartCoroutine(FadeRoutine(sceneName));
+        sr.gameObject.SetActive(true);
+        StartCoroutine(FadeTransition(sceneName));
     }
 
-    private IEnumerator FadeRoutine(string sceneName)
+    private IEnumerator FadeTransition(string sceneName)
     {
-        if (fadeCanvasGroup != null)
-        {
-            yield return StartCoroutine(Fade(0f, 1f));
-            SceneManager.LoadScene(sceneName);
-            yield return StartCoroutine(Fade(1f, 0f));
-        }
-        else
-        {
-            SceneManager.LoadScene(sceneName);
-        }
-    }
+        Color tempColor = sr.color;
 
-    private IEnumerator Fade(float startAlpha, float endAlpha)
-    {
-        float elapsedTime = 0f;
-        while (elapsedTime < fadeDuration)
+        while (sr.color.a < 1f)
         {
-            elapsedTime += Time.deltaTime;
-            float alpha = Mathf.Lerp(startAlpha, endAlpha, elapsedTime / fadeDuration);
-            fadeCanvasGroup.alpha = alpha;
-            yield return null;
+            tempColor.a += 0.01f;
+            Debug.Log("Alpha: " + tempColor.a);
+            sr.color = tempColor;
+            yield return new WaitForSeconds(0.01f);
         }
-        // Ensure final alpha is set
-        if (fadeCanvasGroup != null) fadeCanvasGroup.alpha = endAlpha;
-         fadeCanvasGroup.interactable = endAlpha == 0f;
+        
+        SceneManager.LoadScene("TestScene");  
     }
 }
+    
