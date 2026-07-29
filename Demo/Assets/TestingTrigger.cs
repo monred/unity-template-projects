@@ -15,7 +15,7 @@ public class TestingTrigger : MonoBehaviour
     void Update()
     {
         start++;
-        if(start % 500 == 0){
+        if(start % 800 == 0){
             GetComponent<FireShooter>().trigger();
         }
     }

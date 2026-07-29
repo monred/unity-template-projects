@@ -15,13 +15,16 @@ public class ProjectileScri : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(daAr.damageTime != daAr.maxDamageTime && i != deathTrigger){
-            i++;
-            rb.velocity = new Vector2(speed.x, speed.y);
-        }
-        else{
+        if(daAr.damageTime == daAr.maxDamageTime || i == deathTrigger){
             rb.position = restPlace;
             rb.velocity = Vector3.zero;
         }
+        else{
+            i++;
+            rb.velocity = new Vector2(speed.x, speed.y);
+        }
+    }
+    public void resetDelay(){
+        i = 0;
     }
 }

@@ -37,8 +37,8 @@ public class EnemyHealth : MonoBehaviour
 
     private void death()
     {
+        transform.position = restPlace;
         dead = true;
         Debug.Log("Enemy dead");
     }
-
 }
