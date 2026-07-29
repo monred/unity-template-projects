@@ -13,6 +13,7 @@ public class PlayerInformation : MonoBehaviour
     private PlayerControl pcC;
     private Animator mA;
     private SpriteRenderer sprRend;
+    [SerializeField] AudioSource injuredSound;
     
     void Awake() {deathBe = false; health = maxHealth; invTime = 0; sprRend = GetComponent<SpriteRenderer>(); mA = GetComponent<Animator>(); pcC = GetComponent<PlayerControl>();}
 
@@ -34,6 +35,7 @@ public class PlayerInformation : MonoBehaviour
             mA.SetTrigger("Hurt");
             invTime = maxInvTime;
             health -= amount;
+            injuredSound.Play();
             if(health <= 0){
             deathBe = true;
                 death();
