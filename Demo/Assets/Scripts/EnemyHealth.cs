@@ -23,9 +23,6 @@ public class EnemyHealth : MonoBehaviour
     {
         dead = false;
     }
-    void Update()
-    {
-    }
 
     public void takeDamage(int amount)
     {
