@@ -1,41 +1,66 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
     public int health;
     public int maxHealth;
-    private bool dead;
     public Vector3 restPlace;
-    private Rigidbody2D rb;
-    void Awake() {health = maxHealth; rb = GetComponent<Rigidbody2D>();}
 
-    // Start is called before the first frame update
-    void Start()
+    private bool dead;
+    private Rigidbody2D rb;
+    private Anima dragonAnimation;
+
+    private void Awake()
+    {
+        health = maxHealth;
+        rb = GetComponent<Rigidbody2D>();
+        dragonAnimation = GetComponent<Anima>();
+
+        // TestScene does not currently have Anima attached, so add it automatically.
+        if (dragonAnimation == null)
+            dragonAnimation = gameObject.AddComponent<Anima>();
+    }
+
+    private void Start()
     {
         dead = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void takeDamage(int amount)
     {
-        if(dead){
-            rb.position = restPlace;
+        if (dead)
+            return;
+
+        health -= amount;
+
+        if (health <= 0)
+        {
+            death();
+        }
+        else
+        {
+            // Move 3: the dragon's hit/stunned animation.
+            dragonAnimation.PlayHitAnimation();
         }
     }
-    public void takeDamage(int amount){
-        health -= amount;
-        
-            if(health <= 0){
-                death();
-            }
-            
-        return;
+
+    private void death()
+    {
+        dead = true;
+        dragonAnimation.PlayDeathAnimation();
+        Debug.Log("Enemy dead");
+        StartCoroutine(MoveAwayAfterDeath());
     }
 
-    private void death(){
-        dead = true;
-        Debug.Log("Enemy dead");
+    private IEnumerator MoveAwayAfterDeath()
+    {
+        // Give the death animation time to finish before hiding the dragon.
+        yield return new WaitForSeconds(1.5f);
+
+        if (rb != null)
+            rb.position = restPlace;
+        else
+            transform.position = restPlace;
     }
 }

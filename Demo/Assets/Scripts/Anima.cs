@@ -1,53 +1,51 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
 public class Anima : MonoBehaviour
 {
+    [SerializeField] private float minimumAttackDelay = 2f;
+    [SerializeField] private float maximumAttackDelay = 4f;
+
     private Animator animator;
+    private float nextAttackTime;
+    private bool dead;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        ScheduleNextAttack();
     }
 
-    public void Attack()
+    private void Update()
     {
-        animator.SetTrigger("AttackTrigger");
+        if (dead || Time.time < nextAttackTime)
+            return;
+
+        // Randomly choose move 1 (normal attack) or move 2 (special attack).
+        string attackTrigger = Random.value < 0.5f
+            ? "AttackTrigger"
+            : "SpecialATrigger";
+
+        animator.SetTrigger(attackTrigger);
+        ScheduleNextAttack();
     }
 
-    public void SpecialAttack()
+    public void PlayHitAnimation()
     {
-        animator.SetTrigger("SpecialATrigger");
+        if (!dead)
+            animator.SetTrigger("StunedTrigger");
     }
 
-    public void Move()
+    public void PlayDeathAnimation()
     {
-        animator.SetTrigger("MoveTrigger");
-    }
+        if (dead)
+            return;
 
-    public void TakeHit()
-    {
-        animator.SetTrigger("StunedTrigger");
-    }
-
-    public void Die()
-    {
+        dead = true;
         animator.SetTrigger("DeathTrigger");
     }
 
-    // Temporary keyboard testing
-    private void Update()
+    private void ScheduleNextAttack()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            Attack();
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-            SpecialAttack();
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-            TakeHit();
-
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-            Die();
+        nextAttackTime = Time.time + Random.Range(minimumAttackDelay, maximumAttackDelay);
     }
 }
