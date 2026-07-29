@@ -6,25 +6,31 @@ public class DragonControl : MonoBehaviour
 {
     private int innerTrigger;
     public int skillInterval;
+    public int startDelay;
     // Start is called before the first frame update
     public List<Transform> skillObjectList = new List<Transform>();
-    void Awake() {innerTrigger = 0;}
+    private EnemyHealth EH;
+    void Awake() {innerTrigger = 0;EH = GetComponent<EnemyHealth>();}
 
     // Update is called once per frame
     void Update()
     {
-        innerTrigger++;
-        if(innerTrigger % skillInterval == 0)
+        if(EH.health > 0)
         {
-            doSomeThing();
+            innerTrigger++;
+            if((innerTrigger - startDelay) % skillInterval == 0 && innerTrigger > startDelay)
+            {
+                doSomeThing();
+            }
         }
     }
     private void doSomeThing()
     {
         Debug.Log("doing");
-        int attackWay = Random.Range(0,1);
+        int attackWay = Random.Range(0,2);
         if(attackWay == 0) {
         skillObjectList[attackWay].GetComponent<SpikeTrigger>().GoWork();}
-        else if(attackWay == 1){return;}
+        else if(attackWay == 1){
+        skillObjectList[attackWay].GetComponent<FireBallTrigger>().GoWork();}
     }
 }

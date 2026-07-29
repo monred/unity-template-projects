@@ -7,11 +7,13 @@ public class EnemyHealth : MonoBehaviour
     public int maxHealth;
     public Vector3 restPlace;
 
+    
     private bool dead;
     private Rigidbody2D rb;
 
     private void Awake()
     {
+        
         health = maxHealth;
         rb = GetComponent<Rigidbody2D>();
 
