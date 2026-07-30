@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,15 +5,16 @@ public class DeathScript : MonoBehaviour
 {
     [Header("Scene Settings")]
     [Tooltip("The exact name of your Game Over scene")]
-    public string gameOverSceneName = "You lost lol you suck";
+    [SerializeField] private string gameOverSceneName = "You lost lol you suck";
+
     public void TriggerDeath()
     {
-        SceneManager.LoadScene(gameOverSceneName);
-    }
+        if (string.IsNullOrEmpty(gameOverSceneName))
+        {
+            Debug.LogWarning("DeathScript: No game over scene name assigned.");
+            return;
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        SceneManager.LoadScene(gameOverSceneName);
     }
 }

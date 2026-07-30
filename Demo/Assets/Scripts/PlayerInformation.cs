@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInformation : MonoBehaviour
@@ -13,42 +11,74 @@ public class PlayerInformation : MonoBehaviour
     private PlayerControl pcC;
     private Animator mA;
     private SpriteRenderer sprRend;
+    private DeathScript deathScript;
     [SerializeField] AudioSource injuredSound;
-    
-    void Awake() {deathBe = false; health = maxHealth; invTime = 0; sprRend = GetComponent<SpriteRenderer>(); mA = GetComponent<Animator>(); pcC = GetComponent<PlayerControl>();}
 
-    public void Update(){
-        if(invTime > 0){
+    void Awake()
+    {
+        deathBe = false;
+        health = maxHealth;
+        invTime = 0;
+        sprRend = GetComponent<SpriteRenderer>();
+        mA = GetComponent<Animator>();
+        pcC = GetComponent<PlayerControl>();
+        deathScript = GetComponent<DeathScript>();
+
+        if (deathScript == null)
+        {
+            deathScript = FindObjectOfType<DeathScript>();
+        }
+    }
+
+    public void Update()
+    {
+        if (invTime > 0)
+        {
             invTime--;
-            if(invTime % 100 > 50){
+            if (invTime % 100 > 50)
+            {
                 sprRend.color = Color.black;
             }
-            else{
+            else
+            {
                 sprRend.color = Color.white;
-
             }
         }
     }
-    
-    public void takeDamage(int amount){
-        if(invTime == 0 && !deathBe){
+
+    public void takeDamage(int amount)
+    {
+        if (invTime == 0 && !deathBe)
+        {
             mA.SetTrigger("Hurt");
             invTime = maxInvTime;
             health -= amount;
-            if(injuredSound != null)
+            if (injuredSound != null)
             {
-            injuredSound.Play();
+                injuredSound.Play();
             }
-            if(health <= 0){
-            deathBe = true;
+
+            if (health <= 0)
+            {
+                deathBe = true;
                 death();
             }
         }
-        return;
     }
-    private void death(){
+
+    private void death()
+    {
         mA.SetTrigger("Death");
         Debug.Log("We dead");
-        pcC.death = true;
+
+        if (pcC != null)
+        {
+            pcC.death = true;
+        }
+
+        if (deathScript != null)
+        {
+            deathScript.TriggerDeath();
+        }
     }
 }
