@@ -12,7 +12,7 @@ public class HealthBarEnemy : MonoBehaviour
     // Start is called before the first frame update
     // Update is called once per frame
     void Awake() {savehealth = EH.health;  originalPosi.x = transform.position.x + 0.3f;  originalPosi.y = transform.position.y;  originalPosi.z = transform.position.z;}
-    void Update()
+    void FixedUpdate()
     {
         if(savehealth != EH.health)
         {

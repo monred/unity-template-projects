@@ -12,7 +12,7 @@ public class TestingTrigger : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         start++;
         if(start % 800 == 0){

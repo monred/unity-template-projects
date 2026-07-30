@@ -10,7 +10,7 @@ public class PlayerHealthBar : MonoBehaviour
     // Start is called before the first frame update
     // Update is called once per frame
     void Awake() {savehealth = PI.health; }
-    void Update()
+    void FixedUpdate()
     {
         if(savehealth != PI.health)
         {

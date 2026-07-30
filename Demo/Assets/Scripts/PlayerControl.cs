@@ -28,7 +28,7 @@ public class PlayerControl : MonoBehaviour
     // Start is called before the first frame update
     void Awake() {rb = GetComponent<Rigidbody2D>(); sprRend = GetComponent<SpriteRenderer>(); mA = GetComponent<Animator>();death = false;}
 
-    void Update()
+    void FixedUpdate()
     {
         start++;
         if(start > 800  && start <= 1200){

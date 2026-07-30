@@ -7,7 +7,7 @@ public class CountdownTimer : MonoBehaviour
     public float timeRemaining=15f;
     private bool timerIsRunning = true;
     // Start is called before the first frame update
-    void Update()
+    void FixedUpdate()
     {
         if (timerIsRunning)
         {

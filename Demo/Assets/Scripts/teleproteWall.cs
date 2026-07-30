@@ -14,7 +14,7 @@ public class teleproteWall : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(nu < trigger){
             nu++;

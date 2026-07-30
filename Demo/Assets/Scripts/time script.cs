@@ -21,7 +21,7 @@ public class timescript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         TimerCurrentTimer -= Time.deltaTime;
         Countdown.text = TimerCurrentTimer.ToString();

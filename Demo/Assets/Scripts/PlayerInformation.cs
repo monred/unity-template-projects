@@ -30,7 +30,7 @@ public class PlayerInformation : MonoBehaviour
         }
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         if (invTime > 0)
         {
