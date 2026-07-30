@@ -17,5 +17,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/You lost lol you suck.unity
     guid: 61bf1309949c44046a80b55f9865b9a8
+  - enabled: 0
+    path: Assets/Scene/Testing3.unity
+    guid: 2f806d17c4e5ccf4f8d3f3d3815b80b5
+  - enabled: 1
+    path: Assets/Scene/Start scene.unity
+    guid: f286bddfe05718d4d8d8f4d8bf05a12a
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
