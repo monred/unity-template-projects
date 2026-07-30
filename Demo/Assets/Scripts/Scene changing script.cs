@@ -28,7 +28,7 @@ public class Scenechangingscript : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
         
-        SceneManager.LoadScene("TestScene");  
+        SceneManager.LoadScene("Fighting Scene");  
     }
 }
     

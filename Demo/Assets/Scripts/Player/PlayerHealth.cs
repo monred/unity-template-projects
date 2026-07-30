@@ -1,5 +1,6 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 // INFORMATION ==================================================
 // This script handles logic for players to allow taking damage
@@ -7,19 +8,10 @@ using UnityEngine.SceneManagement;
 // ==============================================================
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
-    [SerializeField] private float _health;
-    [SerializeField] private float _maxHealth;
-    [SerializeField] private DeathScript deathScript;
+    [SerializeField] float _health;
+    [SerializeField] float _maxHealth;
 
-    void Awake()
-    {
-        _health = _maxHealth;
-
-        if (deathScript == null)
-        {
-            deathScript = FindObjectOfType<DeathScript>();
-        }
-    }
+    void Awake() {_health = _maxHealth;}
 
     //Subtract amount from health, checks for health below zero
     public void DealDamage(float amount)
@@ -36,17 +28,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     }
 
     //Implement logic for when the player runs out of health here
-    private void PlayerLose()
+    void PlayerLose()
     {
         Debug.Log("Player has lost the game");
-
-        if (deathScript != null)
-        {
-            deathScript.TriggerDeath();
-        }
-        else
-        {
-            SceneManager.LoadScene("You lost lol you suck");
-        }
     }
 }

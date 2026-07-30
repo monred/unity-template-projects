@@ -38,6 +38,7 @@ public class PlayerControl : MonoBehaviour
             rb.velocity = new Vector2(0, 0);
             mA.SetInteger("AnimState", 0);
         }
+        
         int direcion = 0;
         if(interAttack <= 0 && !death && start > 1200){
             if(onGrounded && Input.GetKeyDown(attackKey)){
