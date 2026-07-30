@@ -15,7 +15,7 @@ public class FireBallTrigger : MonoBehaviour
     {
         if (inWork)
         {
-            transform.position = new Vector3(30.0f, -3.5f + (Random.Range(0,2) * -4.5f), 0.0f);
+            transform.position = new Vector3(30.0f, -3.5f + (Random.Range(0,2) * -5.0f), 0.0f);
             GetComponent<FireShooter>().trigger();
             inWork = false;
         }
