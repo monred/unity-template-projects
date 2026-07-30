@@ -36,7 +36,6 @@ public class DragonControl : MonoBehaviour
     }
     private void doSomeThing()
     {
-        Debug.Log("doing");
         int attackWay = Random.Range(0,2);
         if(attackWay == 0) {
         skillObjectList[attackWay].GetComponent<SpikeTrigger>().GoWork();

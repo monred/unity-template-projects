@@ -51,6 +51,5 @@ public class EnemyHealth : MonoBehaviour
         }
         transform.position = restPlace;
         dead = true;
-        Debug.Log("Enemy dead");
     }
 }
