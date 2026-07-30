@@ -10,7 +10,7 @@ public class PlayerControl : MonoBehaviour
     public float jumpForce;
     public float horizSpeed;
     public int interAttack;
-    private int start;
+    public int start = 0;
     public bool death = false;
     public Transform damageAre;
     public KeyCode jumpKey = KeyCode.Space;
@@ -20,8 +20,12 @@ public class PlayerControl : MonoBehaviour
     public KeyCode attackKey = KeyCode.Mouse0;
     private Animator mA;
     private SpriteRenderer sprRend;
+
+    [SerializeField] AudioSource jumpSound;
+    [SerializeField] AudioSource attackSound;
+
     // Start is called before the first frame update
-    void Awake() {rb = GetComponent<Rigidbody2D>(); sprRend = GetComponent<SpriteRenderer>(); mA = GetComponent<Animator>();death = false; start = 0;}
+    void Awake() {rb = GetComponent<Rigidbody2D>(); sprRend = GetComponent<SpriteRenderer>(); mA = GetComponent<Animator>();death = false;}
 
     void Update()
     {
@@ -38,6 +42,8 @@ public class PlayerControl : MonoBehaviour
         if(interAttack <= 0 && !death && start > 1200){
             if(onGrounded && Input.GetKeyDown(attackKey)){
                 interAttack = 80;
+                if(attackSound != null){
+                attackSound.Play();}
                 rb.velocity = new Vector2(0.0f, rb.velocity.y);
                 attack();
                mA.SetInteger("AnimState",0);
@@ -48,6 +54,9 @@ public class PlayerControl : MonoBehaviour
                 if(Input.GetKey(rightKey)) {direcion++;  sprRend.flipX = false;}
                 if(Input.GetKeyDown(jumpKey) && onGrounded) {
                     mA.SetTrigger("Jump");
+                    onGrounded = false;
+                if(jumpSound != null){
+                jumpSound.Play();}
                     rb.velocity = new Vector2(direcion * horizSpeed, jumpForce);
                 }
                 else{
@@ -73,8 +82,12 @@ public class PlayerControl : MonoBehaviour
             }
         }
         int attackWay = Random.Range(1,4);
+        resetProjec(damageAre);
         mA.SetTrigger("Attack" + attackWay);
-        damageAre.GetComponent<DamageArea>().damageTime = 0;
         return;
+    }
+    public void resetProjec(Transform projec){
+        projec.GetComponent<DamageArea>().resetDelay();
+        projec.GetComponent<ProjectileScri>().resetDelay();
     }
 }

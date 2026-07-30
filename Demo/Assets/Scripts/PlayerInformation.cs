@@ -9,16 +9,18 @@ public class PlayerInformation : MonoBehaviour
     public int damage;
     private int maxInvTime = 600;
     private int invTime = 0;
+    private bool deathBe;
     private PlayerControl pcC;
     private Animator mA;
     private SpriteRenderer sprRend;
+    [SerializeField] AudioSource injuredSound;
     
-    void Awake() {health = maxHealth; invTime = 0; sprRend = GetComponent<SpriteRenderer>(); mA = GetComponent<Animator>(); pcC = GetComponent<PlayerControl>();}
+    void Awake() {deathBe = false; health = maxHealth; invTime = 0; sprRend = GetComponent<SpriteRenderer>(); mA = GetComponent<Animator>(); pcC = GetComponent<PlayerControl>();}
 
     public void Update(){
         if(invTime > 0){
             invTime--;
-            if(invTime % 200 > 100){
+            if(invTime % 100 > 50){
                 sprRend.color = Color.black;
             }
             else{
@@ -29,11 +31,16 @@ public class PlayerInformation : MonoBehaviour
     }
     
     public void takeDamage(int amount){
-        if(invTime == 0){
+        if(invTime == 0 && !deathBe){
             mA.SetTrigger("Hurt");
             invTime = maxInvTime;
             health -= amount;
+            if(injuredSound != null)
+            {
+            injuredSound.Play();
+            }
             if(health <= 0){
+            deathBe = true;
                 death();
             }
         }

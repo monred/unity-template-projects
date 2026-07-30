@@ -1,40 +1,45 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
     public int health;
     public int maxHealth;
-    private bool dead;
     public Vector3 restPlace;
-    private Rigidbody2D rb;
-    void Awake() {health = maxHealth; rb = GetComponent<Rigidbody2D>();}
 
-    // Start is called before the first frame update
-    void Start()
+    
+    private bool dead;
+    private Rigidbody2D rb;
+
+    private void Awake()
+    {
+        
+        health = maxHealth;
+        rb = GetComponent<Rigidbody2D>();
+
+    }
+
+    private void Start()
     {
         dead = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void takeDamage(int amount)
     {
-        if(dead){
-            rb.position = restPlace;
+        if (dead)
+            return;
+
+        health -= amount;
+
+        if (health <= 0)
+        {
+            death();
         }
     }
-    public void takeDamage(int amount){
-        health -= amount;
-        
-            if(health <= 0){
-                death();
-            }
-            
-        return;
-    }
 
-    private void death(){
+    private void death()
+    {
+        transform.position = restPlace;
         dead = true;
         Debug.Log("Enemy dead");
     }
