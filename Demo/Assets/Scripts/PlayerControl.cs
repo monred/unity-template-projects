@@ -20,6 +20,10 @@ public class PlayerControl : MonoBehaviour
     public KeyCode attackKey = KeyCode.Mouse0;
     private Animator mA;
     private bool beBoun;
+    private bool tryAttack;
+    private bool tryLeft;
+    private bool tryRight;
+    private bool tryJump;
     private SpriteRenderer sprRend;
 
     [SerializeField] AudioSource jumpSound;
@@ -28,18 +32,25 @@ public class PlayerControl : MonoBehaviour
     // Start is called before the first frame update
     void Awake() {rb = GetComponent<Rigidbody2D>(); sprRend = GetComponent<SpriteRenderer>(); mA = GetComponent<Animator>();death = false;}
 
+    void Update()
+    {
+        if(Input.GetKey(leftKey)) {tryLeft = true;}
+        if(Input.GetKey(rightKey)) {tryRight = true;}
+        if(Input.GetKeyDown(attackKey)) {tryAttack = true;}
+        if(Input.GetKeyDown(jumpKey)) {tryJump = true;}
+    }
     void FixedUpdate()
     {
         start++;
-        if(start > 800  && start <= 1200){
+        if(start > 120  && start <= 180){
             rb.velocity = new Vector2(0, 0);
             mA.SetInteger("AnimState", 0);
         }
         if(beBoun){beBoun = !onGrounded;}
         int direcion = 0;
-        if(interAttack <= 0 && !death && start > 1200 && !beBoun){
-            if(onGrounded && Input.GetKeyDown(attackKey)){
-                interAttack = 80;
+        if(interAttack <= 0 && !death && start > 180 && !beBoun){
+            if(onGrounded && tryAttack){
+                interAttack = 20;
                 if(attackSound != null){
                 attackSound.Play();}
                 rb.velocity = new Vector2(0.0f, rb.velocity.y);
@@ -69,11 +80,15 @@ public class PlayerControl : MonoBehaviour
             rb.velocity = new Vector2(0.0f, rb.velocity.y);
         }
         interAttack--;
-        if(start <= 800){
+        if(start <= 120){
                 mA.SetBool("Grounded", true);
             mA.SetInteger("AnimState", 1);
             rb.velocity = new Vector2(4.0f, 0);
         }
+            if(tryAttack){tryAttack = false;}
+            if(tryJump){tryJump = false;}
+            if(tryLeft){tryLeft = false;}
+            if(tryRight){tryRight = false;}
     }
     public void attack(){
         if(damageAre!= null){
@@ -96,10 +111,10 @@ public class PlayerControl : MonoBehaviour
     public void OnCollisionStay2D(Collision2D other){
         if(!onGrounded && other.gameObject.tag == "Wall" && other.gameObject.transform.position.y > transform.position.y){
             if(other.gameObject.transform.position.x > transform.position.x){
-                rb.AddForce(transform.right * -800);
+                rb.AddForce(transform.right * -20);
             }
             else{
-                rb.AddForce(transform.right * 800);
+                rb.AddForce(transform.right * 20);
             }
             beBoun = true;
         }

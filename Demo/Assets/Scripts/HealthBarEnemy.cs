@@ -16,7 +16,7 @@ public class HealthBarEnemy : MonoBehaviour
     {
         if(savehealth != EH.health)
         {
-            set = 50;
+            set = 8;
             if (EH.health > 0)
             {
                 transform.localScale = new Vector3((EH.health * 1.0f) / (EH.maxHealth * 1.0f) * maxXSize, transform.localScale.y, transform.localScale.z);
@@ -40,6 +40,6 @@ public class HealthBarEnemy : MonoBehaviour
     }
     private void Shake(int selly)
     {
-        transform.position = new Vector3(originalPosi.x + Random.Range(-0.02f, 0.02f) * selly, originalPosi.y + Random.Range(-0.02f, 0.02f) * selly, originalPosi.z);
+        transform.position = new Vector3(originalPosi.x + Random.Range(-0.12f, 0.12f) * selly, originalPosi.y + Random.Range(-0.12f, 0.12f) * selly, originalPosi.z);
     }
 }
