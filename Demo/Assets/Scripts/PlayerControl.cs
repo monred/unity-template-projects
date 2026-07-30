@@ -31,10 +31,6 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         start++;
-        if(start <= 800){
-            mA.SetInteger("AnimState", 1);
-            rb.velocity = new Vector2(4.0f, 0);
-        }
         if(start > 800  && start <= 1200){
             rb.velocity = new Vector2(0, 0);
             mA.SetInteger("AnimState", 0);
@@ -73,6 +69,11 @@ public class PlayerControl : MonoBehaviour
             rb.velocity = new Vector2(0.0f, rb.velocity.y);
         }
         interAttack--;
+        if(start <= 800){
+                mA.SetBool("Grounded", true);
+            mA.SetInteger("AnimState", 1);
+            rb.velocity = new Vector2(4.0f, 0);
+        }
     }
     public void attack(){
         if(damageAre!= null){
@@ -92,13 +93,13 @@ public class PlayerControl : MonoBehaviour
         projec.GetComponent<DamageArea>().resetDelay();
         projec.GetComponent<ProjectileScri>().resetDelay();
     }
-    public void OnCollisionEnter2D(Collision2D other){
-        if(other.gameObject.tag == "Wall" && other.gameObject.transform.position.y > transform.position.y){
+    public void OnCollisionStay2D(Collision2D other){
+        if(!onGrounded && other.gameObject.tag == "Wall" && other.gameObject.transform.position.y > transform.position.y){
             if(other.gameObject.transform.position.x > transform.position.x){
-                rb.AddForce(transform.right * -1500);
+                rb.AddForce(transform.right * -800);
             }
             else{
-                rb.AddForce(transform.right * 1500);
+                rb.AddForce(transform.right * 800);
             }
             beBoun = true;
         }
