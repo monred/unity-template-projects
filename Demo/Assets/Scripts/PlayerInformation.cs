@@ -80,5 +80,9 @@ public class PlayerInformation : MonoBehaviour
         {
             deathScript.TriggerDeath();
         }
+        else
+        {
+            Debug.LogWarning("PlayerInformation: DeathScript was not found. Death transition will not occur.");
+        }
     }
 }

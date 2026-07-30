@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +7,7 @@ public class DeathScript : MonoBehaviour
     [Header("Scene Settings")]
     [Tooltip("The exact name of your Game Over scene")]
     [SerializeField] private string gameOverSceneName = "You lost lol you suck";
+    [SerializeField] private float delayBeforeGameOver = 3f;
 
     public void TriggerDeath()
     {
@@ -15,6 +17,12 @@ public class DeathScript : MonoBehaviour
             return;
         }
 
+        StartCoroutine(LoadGameOverAfterDelay());
+    }
+
+    private IEnumerator LoadGameOverAfterDelay()
+    {
+        yield return new WaitForSeconds(delayBeforeGameOver);
         SceneManager.LoadScene(gameOverSceneName);
     }
 }
