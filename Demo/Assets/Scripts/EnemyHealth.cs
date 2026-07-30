@@ -6,6 +6,9 @@ public class EnemyHealth : MonoBehaviour
     public int health;
     public int maxHealth;
     public Vector3 restPlace;
+    private Animator mA;
+    private bool getMA;
+    public int deadDelay = 0;
 
     
     private bool dead;
@@ -13,7 +16,11 @@ public class EnemyHealth : MonoBehaviour
 
     private void Awake()
     {
-        
+        getMA = GetComponent<Animator>() != null;
+        if(getMA){
+            deadDelay = 500;
+            mA = GetComponent<Animator>();
+        }
         health = maxHealth;
         rb = GetComponent<Rigidbody2D>();
 
@@ -39,8 +46,10 @@ public class EnemyHealth : MonoBehaviour
 
     private void death()
     {
+        if(getMA){
+            mA.SetTrigger("DeathTrigger");
+        }
         transform.position = restPlace;
         dead = true;
-        Debug.Log("Enemy dead");
     }
 }
