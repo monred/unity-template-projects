@@ -12,14 +12,15 @@ public class Scenechangingscript : MonoBehaviour
     
     public void FadeToScene(string sceneName)
     {
-        sr.gameObject.SetActive(true);
+        if (sr) { sr.gameObject.SetActive(true); }
+         
         StartCoroutine(FadeTransition(sceneName));
     }
 
     private IEnumerator FadeTransition(string sceneName)
     {
         Color tempColor = sr.color;
-
+        Debug.Log("Testing Function");
         while (sr.color.a < 1f)
         {
             tempColor.a += 0.01f;
