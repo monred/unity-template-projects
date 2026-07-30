@@ -2,39 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpikeTrigger : MonoBehaviour
+public class RayTrigger : MonoBehaviour
 {
     // Start is called before the first frame update
     private bool inWork;
+    private int innerTimer;
     public Transform player;
-    private int innerRunner;
     void Awake() {inWork = 0 == 1;}
-    
 
     // Update is called once per frame
     void Update()
     {
         if (inWork)
         {
-            innerRunner++;
-            if(innerRunner % 300 == 0)
-            {
-                transform.position = new Vector3(player.position.x, -10.0f, player.position.z);
+            innerTimer++;
+            transform.position = new Vector3(30.0f, -8.0f, 0.0f);
+            if(innerTimer > 200){
                 GetComponent<FireShooter>().trigger();
-            }
-            if(innerRunner == 900)
-            {
                 inWork = false;
             }
         }
     }
-
     public void GoWork()
     {
+        
         if (!inWork)
         {
+            innerTimer = 0;
             inWork = true;
-            innerRunner = 0;
         }
         return;
     }
