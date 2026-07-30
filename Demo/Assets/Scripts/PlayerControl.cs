@@ -92,13 +92,13 @@ public class PlayerControl : MonoBehaviour
         projec.GetComponent<DamageArea>().resetDelay();
         projec.GetComponent<ProjectileScri>().resetDelay();
     }
-    public void OnCollisionEnter2D(Collision2D other){
-        if(other.gameObject.tag == "Wall" && other.gameObject.transform.position.y > transform.position.y){
+    public void OnCollisionStay2D(Collision2D other){
+        if(!onGrounded && other.gameObject.tag == "Wall" && other.gameObject.transform.position.y > transform.position.y){
             if(other.gameObject.transform.position.x > transform.position.x){
-                rb.AddForce(transform.right * -1500);
+                rb.AddForce(transform.right * -800);
             }
             else{
-                rb.AddForce(transform.right * 1500);
+                rb.AddForce(transform.right * 800);
             }
             beBoun = true;
         }
