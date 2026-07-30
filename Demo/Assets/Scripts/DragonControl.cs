@@ -23,7 +23,7 @@ public class DragonControl : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(EH.health > 0)
         {

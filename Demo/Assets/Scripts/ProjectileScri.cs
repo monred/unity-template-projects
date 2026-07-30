@@ -13,7 +13,7 @@ public class ProjectileScri : MonoBehaviour
     void Awake() {rb = GetComponent<Rigidbody2D>(); daAr = GetComponent<DamageArea>(); i = 0;}
     // Start is called before the first frame update
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(daAr.damageTime == daAr.maxDamageTime || i == deathTrigger){
             rb.position = restPlace;

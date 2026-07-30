@@ -5,7 +5,7 @@ public class PlayerInformation : MonoBehaviour
     public int health;
     public int maxHealth;
     public int damage;
-    private int maxInvTime = 600;
+    private int maxInvTime = 90;
     private int invTime = 0;
     private bool deathBe;
     private PlayerControl pcC;
@@ -30,12 +30,12 @@ public class PlayerInformation : MonoBehaviour
         }
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         if (invTime > 0)
         {
             invTime--;
-            if (invTime % 100 > 50)
+            if (invTime % 10 > 5)
             {
                 sprRend.color = Color.black;
             }

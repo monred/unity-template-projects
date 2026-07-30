@@ -138,11 +138,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2698781101631381962, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
       propertyPath: speed.y
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2698781101631381962, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
       propertyPath: deathTrigger
-      value: 500
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6375922301721948837, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
       propertyPath: m_Name
@@ -677,11 +677,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2698781101631381962, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
       propertyPath: speed.y
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2698781101631381962, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
       propertyPath: deathTrigger
-      value: 500
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6375922301721948837, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
       propertyPath: m_Name
@@ -755,11 +755,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2698781101631381962, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
       propertyPath: speed.y
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2698781101631381962, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
       propertyPath: deathTrigger
-      value: 500
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6375922301721948837, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
       propertyPath: m_Name
@@ -917,11 +917,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2698781101631381962, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
       propertyPath: speed.y
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2698781101631381962, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
       propertyPath: deathTrigger
-      value: 500
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6375922301721948837, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
       propertyPath: m_Name
@@ -1594,8 +1594,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c4f6a8b6e570a54590f30379308a44f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillInterval: 1500
-  startDelay: 1200
+  skillInterval: 225
+  startDelay: 180
   skillObjectList:
   - {fileID: 1031696545}
   - {fileID: 865461174}
@@ -1991,11 +1991,11 @@ PrefabInstance:
       objectReference: {fileID: 1863994062777263969, guid: ab3974bfa2b0cc744bbbdd9e6ffd0817, type: 3}
     - target: {fileID: 2698781101631381962, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
       propertyPath: speed.x
-      value: -10
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 2698781101631381962, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
       propertyPath: deathTrigger
-      value: 5000
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 6375922301721948837, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
       propertyPath: m_Name
