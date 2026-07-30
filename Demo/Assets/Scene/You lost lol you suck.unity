@@ -319,11 +319,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
   m_AnchoredPosition: {x: 1.4, y: -178.6}
-=======
-  m_AnchoredPosition: {x: 42.9, y: -129.4}
->>>>>>> e91c3e77cb1b703a6c3827cbce8f1cf7e5490ce0
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &586199962
@@ -340,11 +336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerMaxTimer: 10
   TimerCurrentTimer: 0
-<<<<<<< HEAD
   Countdown: {fileID: 586199963}
-=======
-  Countdown: {fileID: 0}
->>>>>>> e91c3e77cb1b703a6c3827cbce8f1cf7e5490ce0
 --- !u!114 &586199963
 MonoBehaviour:
   m_ObjectHideFlags: 0
