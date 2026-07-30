@@ -32,7 +32,7 @@ public class PlayerControl : MonoBehaviour
         start++;
         if(start <= 800){
             mA.SetInteger("AnimState", 1);
-            rb.velocity = new Vector2(horizSpeed, 0);
+            rb.velocity = new Vector2(4.0f, 0);
         }
         if(start > 800  && start <= 1200){
             rb.velocity = new Vector2(0, 0);
@@ -57,10 +57,13 @@ public class PlayerControl : MonoBehaviour
                     onGrounded = false;
                 if(jumpSound != null){
                 jumpSound.Play();}
-                    rb.velocity = new Vector2(direcion * horizSpeed, jumpForce);
+                    rb.AddForce(transform.right * horizSpeed * direcion);
+                    rb.AddForce(transform.up * jumpForce);
+                    //rb.velocity = new Vector2(direcion * horizSpeed, jumpForce);
                 }
                 else{
-                    rb.velocity = new Vector2(direcion * horizSpeed, rb.velocity.y);
+                    rb.AddForce(transform.right * horizSpeed * direcion);
+                    //rb.velocity = new Vector2(direcion * horizSpeed, rb.velocity.y);
                 }
                 mA.SetInteger("AnimState", Mathf.Abs(direcion));
                 mA.SetBool("Grounded", onGrounded);
