@@ -616,13 +616,25 @@ PrefabInstance:
       value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 4207777884720471559, guid: 42705e95b5445d6429c049ac13f561b0, type: 3}
+      propertyPath: jumpForce
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207777884720471559, guid: 42705e95b5445d6429c049ac13f561b0, type: 3}
       propertyPath: jumpSound
       value: 
       objectReference: {fileID: 1517890689}
     - target: {fileID: 4207777884720471559, guid: 42705e95b5445d6429c049ac13f561b0, type: 3}
+      propertyPath: horizSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207777884720471559, guid: 42705e95b5445d6429c049ac13f561b0, type: 3}
       propertyPath: attackSound
       value: 
       objectReference: {fileID: 1918283502}
+    - target: {fileID: 5460092646388933267, guid: 42705e95b5445d6429c049ac13f561b0, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 8a28edc4d35b17b47b46161aebad41ae, type: 2}
     - target: {fileID: 5508268270312973252, guid: 42705e95b5445d6429c049ac13f561b0, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.69328135
@@ -1581,6 +1593,7 @@ MonoBehaviour:
   health: 0
   maxHealth: 2000
   restPlace: {x: 1000, y: 0, z: 0}
+  deadDelay: 0
 --- !u!114 &1322625198
 MonoBehaviour:
   m_ObjectHideFlags: 0
