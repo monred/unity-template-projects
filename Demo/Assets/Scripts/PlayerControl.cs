@@ -19,6 +19,7 @@ public class PlayerControl : MonoBehaviour
     public KeyCode squatKey = KeyCode.C;
     public KeyCode attackKey = KeyCode.Mouse0;
     private Animator mA;
+    private bool beBoun;
     private SpriteRenderer sprRend;
 
     [SerializeField] AudioSource jumpSound;
@@ -38,9 +39,9 @@ public class PlayerControl : MonoBehaviour
             rb.velocity = new Vector2(0, 0);
             mA.SetInteger("AnimState", 0);
         }
-        
+        if(beBoun){beBoun = !onGrounded;}
         int direcion = 0;
-        if(interAttack <= 0 && !death && start > 1200){
+        if(interAttack <= 0 && !death && start > 1200 && !beBoun){
             if(onGrounded && Input.GetKeyDown(attackKey)){
                 interAttack = 80;
                 if(attackSound != null){
@@ -58,13 +59,10 @@ public class PlayerControl : MonoBehaviour
                     onGrounded = false;
                 if(jumpSound != null){
                 jumpSound.Play();}
-                    rb.AddForce(transform.right * horizSpeed * direcion);
-                    rb.AddForce(transform.up * jumpForce);
-                    //rb.velocity = new Vector2(direcion * horizSpeed, jumpForce);
+                    rb.velocity = new Vector2(direcion * horizSpeed, jumpForce);
                 }
                 else{
-                    rb.AddForce(transform.right * horizSpeed * direcion);
-                    //rb.velocity = new Vector2(direcion * horizSpeed, rb.velocity.y);
+                    rb.velocity = new Vector2(direcion * horizSpeed, rb.velocity.y);
                 }
                 mA.SetInteger("AnimState", Mathf.Abs(direcion));
                 mA.SetBool("Grounded", onGrounded);
@@ -93,5 +91,16 @@ public class PlayerControl : MonoBehaviour
     public void resetProjec(Transform projec){
         projec.GetComponent<DamageArea>().resetDelay();
         projec.GetComponent<ProjectileScri>().resetDelay();
+    }
+    public void OnCollisionEnter2D(Collision2D other){
+        if(other.gameObject.tag == "Wall" && other.gameObject.transform.position.y > transform.position.y){
+            if(other.gameObject.transform.position.x > transform.position.x){
+                rb.AddForce(transform.right * -1500);
+            }
+            else{
+                rb.AddForce(transform.right * 1500);
+            }
+            beBoun = true;
+        }
     }
 }
