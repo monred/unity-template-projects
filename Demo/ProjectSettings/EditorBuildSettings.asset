@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scene/Testing2.unity
     guid: 75c79f9009eddf447bb2a46d7040ed8a
   - enabled: 1
-    path: Assets/Scene/TestScene.unity
+    path: Assets/Scene/Fighting Scene.unity
     guid: f313a35b14fa59d4882cfe829e154e5f
   - enabled: 1
     path: Assets/Scene/You lost lol you suck.unity
