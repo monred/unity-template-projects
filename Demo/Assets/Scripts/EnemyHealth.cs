@@ -5,7 +5,6 @@ public class EnemyHealth : MonoBehaviour
 {
     public int health;
     public int maxHealth;
-    public Vector3 restPlace;
     private Animator mA;
     private bool getMA;
     public int deadDelay = 0;
@@ -49,7 +48,6 @@ public class EnemyHealth : MonoBehaviour
         if(getMA){
             mA.SetTrigger("DeathTrigger");
         }
-        transform.position = restPlace;
         dead = true;
     }
 }
