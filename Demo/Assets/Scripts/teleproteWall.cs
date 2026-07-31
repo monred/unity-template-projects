@@ -6,7 +6,6 @@ public class teleproteWall : MonoBehaviour
 {
     // Start is called before the first frame update
     public Vector3 targetPosition;
-    public int trigger;
     private int nu;
     void Start()
     {
@@ -16,7 +15,7 @@ public class teleproteWall : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(nu < trigger){
+        if(nu < 100){
             nu++;
         }
         else{
