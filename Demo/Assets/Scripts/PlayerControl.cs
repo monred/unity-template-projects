@@ -21,8 +21,10 @@ public class PlayerControl : MonoBehaviour
     private Animator mA;
     private bool beBoun;
     private bool tryAttack;
+    private bool didAttack;
     private bool tryLeft;
     private bool tryRight;
+    private bool didJump;
     private bool tryJump;
     private SpriteRenderer sprRend;
 
@@ -34,13 +36,23 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKey(leftKey)) {tryLeft = true;}
-        if(Input.GetKey(rightKey)) {tryRight = true;}
-        if(Input.GetKeyDown(attackKey)) {tryAttack = true;}
-        if(Input.GetKeyDown(jumpKey)) {tryJump = true;}
     }
     void FixedUpdate()
     {
+        if(Input.GetKey(leftKey)) {tryLeft = true;}
+        if(Input.GetKey(rightKey)) {tryRight = true;}
+        if(Input.GetKey(attackKey)) {
+            if(!didJump){
+                tryAttack = true;
+            }
+            didAttack = true;
+        } else{didAttack = false;}
+        if(Input.GetKey(jumpKey)) {
+            if(!didJump){
+                tryJump = true;
+            }
+            didJump = true;
+        } else{didJump = false;}
         start++;
         if(start > 120  && start <= 180){
             rb.velocity = new Vector2(0, 0);
@@ -59,15 +71,15 @@ public class PlayerControl : MonoBehaviour
             }
             else{
                 damageAre.position = damageAre.GetComponent<ProjectileScri>().restPlace;
-                if(Input.GetKey(leftKey)) {direcion--; sprRend.flipX = true;}
-                if(Input.GetKey(rightKey)) {direcion++;  sprRend.flipX = false;}
-                if(Input.GetKeyDown(jumpKey) && onGrounded) {
+                if(tryLeft) {direcion--; sprRend.flipX = true;}
+                if(tryRight) {direcion++;  sprRend.flipX = false;}
+                if(tryJump && onGrounded) {
                     mA.SetTrigger("Jump");
                     onGrounded = false;
-                if(jumpSound != null){
-                jumpSound.Play();}
                     rb.velocity = new Vector2(direcion * horizSpeed, jumpForce);
-                }
+                    if(jumpSound != null){
+                        jumpSound.Play();}
+                    }
                 else{
                     rb.velocity = new Vector2(direcion * horizSpeed, rb.velocity.y);
                 }
@@ -85,10 +97,10 @@ public class PlayerControl : MonoBehaviour
             mA.SetInteger("AnimState", 1);
             rb.velocity = new Vector2(4.0f, 0);
         }
-            if(tryAttack){tryAttack = false;}
-            if(tryJump){tryJump = false;}
-            if(tryLeft){tryLeft = false;}
-            if(tryRight){tryRight = false;}
+            tryAttack = false;
+            tryJump = false;
+            tryLeft = false;
+            tryRight = false;
     }
     public void attack(){
         if(damageAre!= null){

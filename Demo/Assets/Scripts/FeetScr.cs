@@ -14,10 +14,12 @@ public class FeetScr : MonoBehaviour
     }
 
     private void OnTriggerStay2D(Collider2D other){
-        targetFile.onGrounded = (other.tag == "Wall" || other.tag == "Floor");
+        if((other.tag == "Wall" || other.tag == "Floor")){
+        targetFile.onGrounded = true;}
     }
     private void OnTriggerExit2D(Collider2D other){
-        targetFile.onGrounded = !(other.tag == "Wall" || other.tag == "Floor");
+        if((other.tag == "Wall" || other.tag == "Floor")){
+        targetFile.onGrounded = false;}
     }
     
 }
