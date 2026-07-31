@@ -22,7 +22,7 @@ public class SpikeTrigger : MonoBehaviour
                 transform.position = new Vector3(player.position.x, -10.0f, player.position.z);
                 GetComponent<FireShooter>().trigger();
             }
-            if(innerRunner == 180)
+            if(innerRunner == 135)
             {
                 inWork = false;
             }
