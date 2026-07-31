@@ -546,6 +546,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5650423630096164307, guid: ed7afb02a2246614da8d0e93b155ef48, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1322625192}
+    - targetCorrespondingSourceObject: {fileID: 5650423630096164307, guid: ed7afb02a2246614da8d0e93b155ef48, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1322625199}
   m_SourcePrefab: {fileID: 100100000, guid: ed7afb02a2246614da8d0e93b155ef48, type: 3}
 --- !u!1001 &486976338
 PrefabInstance:
@@ -1137,7 +1140,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {x: 2.24, y: -2.798, z: 0}
-  trigger: 1000
 --- !u!1001 &1004034967
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1580,7 +1582,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 2000
-  restPlace: {x: 1000, y: 0, z: 0}
   deadDelay: 0
 --- !u!114 &1322625198
 MonoBehaviour:
@@ -1599,6 +1600,20 @@ MonoBehaviour:
   skillObjectList:
   - {fileID: 1031696545}
   - {fileID: 865461174}
+--- !u!114 &1322625199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322625188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f7270cb8ac14f9bb2ee2eac9932504, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverSceneName: holy shoot, you beat deh game
+  delayBeforeGameOver: 3
 --- !u!4 &1382024438 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8095611022510812651, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
@@ -1962,7 +1977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60f7270cb8ac14f9bb2ee2eac9932504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverSceneName: You lost lol you suck
+  gameOverSceneName: LostSce
   delayBeforeGameOver: 3
 --- !u!4 &1727226972 stripped
 Transform:

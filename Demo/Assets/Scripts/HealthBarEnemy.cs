@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthBarEnemy : MonoBehaviour
 {
@@ -9,16 +10,17 @@ public class HealthBarEnemy : MonoBehaviour
     private int savehealth;
     private Vector3 originalPosi;
     private int set;
+    private int delay;
     // Start is called before the first frame update
     // Update is called once per frame
-    void Awake() {savehealth = EH.health;  originalPosi.x = transform.position.x + 0.3f;  originalPosi.y = transform.position.y;  originalPosi.z = transform.position.z;}
+    void Awake() { delay = 0;  savehealth = EH.health;  originalPosi.x = transform.position.x + 0.3f;  originalPosi.y = transform.position.y;  originalPosi.z = transform.position.z;}
     void FixedUpdate()
     {
         if(savehealth != EH.health)
         {
-            set = 8;
             if (EH.health > 0)
             {
+                set = 8;
                 transform.localScale = new Vector3((EH.health * 1.0f) / (EH.maxHealth * 1.0f) * maxXSize, transform.localScale.y, transform.localScale.z);
             }
             else
@@ -36,7 +38,12 @@ public class HealthBarEnemy : MonoBehaviour
             this.Shake(set);
             set--;
         }
+        if (EH.health <= 0) { delay++; }
+        if (delay == 150) { SceneManager.LoadScene("WinSce"); }
+
         savehealth = EH.health;
+        
+
     }
     private void Shake(int selly)
     {

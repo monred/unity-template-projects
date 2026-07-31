@@ -18,10 +18,13 @@ EditorBuildSettings:
     path: Assets/Scene/Fighting Scene.unity
     guid: f313a35b14fa59d4882cfe829e154e5f
   - enabled: 1
-    path: Assets/Scene/You lost lol you suck.unity
+    path: Assets/Scene/LostSce.unity
     guid: 61bf1309949c44046a80b55f9865b9a8
   - enabled: 0
     path: Assets/Scene/Testing3.unity
     guid: 2f806d17c4e5ccf4f8d3f3d3815b80b5
+  - enabled: 1
+    path: Assets/Scene/WinSce.unity
+    guid: bae76740f6a3342df9dc05ef787094ac
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
