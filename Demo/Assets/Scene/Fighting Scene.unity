@@ -1436,7 +1436,7 @@ PrefabInstance:
       objectReference: {fileID: 1863994062777263969, guid: ab3974bfa2b0cc744bbbdd9e6ffd0817, type: 3}
     - target: {fileID: 2698781101631381962, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
       propertyPath: speed.x
-      value: -12
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 2698781101631381962, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
       propertyPath: deathTrigger
@@ -2098,7 +2098,7 @@ PrefabInstance:
       objectReference: {fileID: 1863994062777263969, guid: ab3974bfa2b0cc744bbbdd9e6ffd0817, type: 3}
     - target: {fileID: 2698781101631381962, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
       propertyPath: speed.x
-      value: -12
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 2698781101631381962, guid: 59cbc4b408b13054b85d82b02f34aba0, type: 3}
       propertyPath: deathTrigger
